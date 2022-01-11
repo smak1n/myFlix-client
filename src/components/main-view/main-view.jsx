@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Row, Col, Navbar, Nav } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -56,12 +57,29 @@ export default class MainView extends React.Component {
 
     return (
       <div className="main-view">
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-          ))
-        }
+        <Navbar className="mb-5" bg="primary" variant="dark">
+          <Navbar.Brand href="#">myFlix</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#movies">Movies</Nav.Link>
+            <Nav.Link href="#profile">Profile</Nav.Link>
+            <Nav.Link href="#logout">Logout</Nav.Link>
+          </Nav>
+        </Navbar>
+
+        <Row className="main-view justify-content-md-center">
+          {selectedMovie
+            ? (
+              <Col md={8} lg={4}>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              </Col>
+              )
+            : movies.map(movie => (
+              <Col md={4} lg={3}>
+              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
+              </Col>
+            ))
+          }
+        </Row>
       </div>
     );
   }
