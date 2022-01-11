@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Image } from 'react-bootstrap';
 
 export class MovieView extends React.Component {
   
