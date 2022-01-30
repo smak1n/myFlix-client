@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import { setUser, updateUser } from '../../actions/actions';
+
+import { connect } from 'react-redux';
+
 import { Form, Button, Card, CardGroup, Container, Col, Row } from "react-bootstrap";
 
 // import "./profile-update.scss";
@@ -100,11 +104,11 @@ export function ProfileUpdate(props) {
   );
 }
 
-ProfileUpdate.propTypes = {
-  user: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.instanceOf(Date)
-  }),
-};
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
+  }
+}
+
+export default connect(mapStateToProps, {setUser, updateUser})(ProfileUpdate);
