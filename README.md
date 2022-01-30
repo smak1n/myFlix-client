@@ -1,5 +1,7 @@
 # myFlix-client
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e3aee3a0-fb30-4027-bc27-563c9bdd1e96/deploy-status)](https://app.netlify.com/sites/smak1n-myflix-client/deploys)
+
 ## Objective
 
 Using ReactJS, build the client-side for an application called myFlix based on its existing server-side code (REST API and database). Backend was built using MongoDB, ExpressJS and NodeJS.
