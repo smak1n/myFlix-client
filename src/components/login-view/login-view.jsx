@@ -53,6 +53,9 @@ export function LoginView(props) {
 
   return (
     <Container>
+      <div className='login-title'> 
+        <h1>Welcome to myFlix</h1>
+      </div>
       <Row className="justify-content-md-center">
         <Col>
       <Card>
