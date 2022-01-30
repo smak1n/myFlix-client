@@ -5,7 +5,7 @@ import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import "./login-view.scss";
 import axios from 'axios';
 import { Link } from "react-router-dom";
-
+import { connect } from 'react-redux';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -95,10 +95,8 @@ export function LoginView(props) {
   );
 }
 
-LoginView.propTypes = {
-  user: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired
-  }),
-  // onLoggedIn: PropTypes.func.isRequired
-}; 
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (username, password) => dispatch(handleSubmit(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);
