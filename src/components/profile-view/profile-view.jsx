@@ -9,6 +9,10 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
+import { setUser, updateUser } from '../../actions/actions';
+
+import { connect } from 'react-redux';
+
 
 import "./profile-view.scss";
 
@@ -168,12 +172,11 @@ export class ProfileView extends React.Component {
   }
 }
 
-ProfileView.propTypes = {
-  user: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.instanceOf(Date).isRequired,
-    FavoriteMovies: PropTypes.array,
-  }),
-};
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
+  }
+}
+
+export default connect(mapStateToProps, {setUser, updateUser})(ProfileView);
