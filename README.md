@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e3aee3a0-fb30-4027-bc27-563c9bdd1e96/deploy-status)](https://app.netlify.com/sites/smak1n-myflix-client/deploys)
 
-https://smak1n-myflix-client.netlify.app/
+https://react-myflix-client.netlify.app/
 
 ## Objective
 
